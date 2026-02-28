@@ -10,7 +10,7 @@ const SplitPortal = () => {
 
   const handleTravelerSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate("/registration-submitted");
+    navigate("/dashboard");
   };
 
   return (

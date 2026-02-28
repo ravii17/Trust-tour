@@ -1,9 +1,31 @@
-import { Shield, MapPin, UserRound } from "lucide-react";
+import { Shield, MapPin, UserRound, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLang } from "@/context/LanguageContext";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const { lang, setLang, t } = useLang();
+
+  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru") => {
+    setLang(newLang);
+  };
+
+  const getLanguageLabel = (l: string) => {
+    switch (l) {
+      case "en": return "English";
+      case "hi": return "हिंदी";
+      case "ja": return "日本語";
+      case "fr": return "Français";
+      case "ru": return "Русский";
+      default: return "English";
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-sm shadow-sm">
@@ -43,29 +65,33 @@ const Header = () => {
               {t("header.tourist_login")}
             </Link>
 
-            {/* Language Switcher */}
-            <div className="flex items-center gap-1 rounded-full border border-border p-1 bg-muted">
-              <button
-                onClick={() => setLang("en")}
-                className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 ${
-                  lang === "en"
-                    ? "bg-saffron text-primary-foreground shadow-sm"
-                    : "text-slate-muted hover:text-slate-text"
-                }`}
-              >
-                {t("header.lang_en")}
-              </button>
-              <button
-                onClick={() => setLang("hi")}
-                className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 ${
-                  lang === "hi"
-                    ? "bg-saffron text-primary-foreground shadow-sm"
-                    : "text-slate-muted hover:text-slate-text"
-                }`}
-              >
-                {t("header.lang_hi")}
-              </button>
-            </div>
+            {/* Language Switcher Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="rounded-full gap-2 border-border shadow-sm">
+                  <Globe className="w-4 h-4 text-slate-text" />
+                  <span className="font-semibold text-slate-text">{getLanguageLabel(lang)}</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-[150px] rounded-xl">
+                <DropdownMenuItem onClick={() => handleLanguageChange("en")} className="font-medium cursor-pointer">
+                  English ({t("header.lang_en")})
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("hi")} className="font-medium cursor-pointer">
+                  हिंदी
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("ja")} className="font-medium cursor-pointer">
+                  日本語 (JA)
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("fr")} className="font-medium cursor-pointer">
+                  Français (FR)
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("ru")} className="font-medium cursor-pointer">
+                  Русский (RU)
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
           </div>
         </div>
       </div>
