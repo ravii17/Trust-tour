@@ -11,7 +11,7 @@ const RegistrationSubmitted = () => {
         <CheckCircle2 className="mx-auto h-16 w-16 text-teal" />
         <h1 className="mt-5 text-3xl font-bold text-slate-text">{t("traveler.submitted")}</h1>
         <p className="mt-3 text-slate-muted">
-          Your stay registration has been received. Authorities can now support you better during your journey.
+          Your stay registration is Validated. 
         </p>
         <Link
           to="/"
