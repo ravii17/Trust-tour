@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import RegisterYourStay from "./pages/RegisterYourStay";
 import RegistrationSubmitted from "./pages/RegistrationSubmitted";
 import Dashboard from "./pages/Dashboard";
+import AuthorityDashboard from "./pages/AuthorityDashboard";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "@/context/LanguageContext";
 
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="/register-your-stay" element={<RegisterYourStay />} />
             <Route path="/registration-submitted" element={<RegistrationSubmitted />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/authority-dashboard" element={<AuthorityDashboard />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

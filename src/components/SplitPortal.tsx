@@ -13,6 +13,11 @@ const SplitPortal = () => {
     navigate("/dashboard");
   };
 
+  const handleAuthoritySubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate("/authority-dashboard");
+  };
+
   return (
     <section id="tourist-login" className="scroll-mt-24 py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="mx-auto max-w-7xl">
@@ -92,10 +97,11 @@ const SplitPortal = () => {
             </div>
 
             {/* Login form */}
-            <div className="p-6 space-y-5">
+            <form onSubmit={handleAuthoritySubmit} className="p-6 space-y-5">
               <div className="space-y-1.5">
                 <Label className="text-white/80 font-medium text-sm">{t("authority.officer_id")}</Label>
                 <Input
+                  required
                   placeholder={t("authority.officer_id_placeholder")}
                   className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus-visible:ring-teal"
                 />
@@ -103,19 +109,20 @@ const SplitPortal = () => {
               <div className="space-y-1.5">
                 <Label className="text-white/80 font-medium text-sm">{t("authority.password")}</Label>
                 <Input
+                  required
                   type="password"
                   placeholder={t("authority.password_placeholder")}
                   className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus-visible:ring-teal"
                 />
               </div>
               <button
-                type="button"
+                type="submit"
                 className="w-full h-11 rounded-xl bg-teal text-white font-semibold text-sm hover:bg-teal-dark transition-colors shadow-sm"
               >
                 {t("authority.login")}
               </button>
               <p className="text-[11px] text-white/35 text-center leading-relaxed pt-1">{t("authority.note")}</p>
-            </div>
+            </form>
           </div>
         </div>
       </div>
