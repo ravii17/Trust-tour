@@ -8,6 +8,8 @@ import RegisterYourStay from "./pages/RegisterYourStay";
 import RegistrationSubmitted from "./pages/RegistrationSubmitted";
 import Dashboard from "./pages/Dashboard";
 import AuthorityDashboard from "./pages/AuthorityDashboard";
+import AirportAuthorityLogin from "./pages/AirportAuthorityLogin";
+import AirportAuthorityDashboard from "./pages/AirportAuthorityDashboard";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "@/context/LanguageContext";
 
@@ -26,6 +28,8 @@ const App = () => (
             <Route path="/registration-submitted" element={<RegistrationSubmitted />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/authority-dashboard" element={<AuthorityDashboard />} />
+            <Route path="/airport-login" element={<AirportAuthorityLogin />} />
+            <Route path="/airport-dashboard" element={<AirportAuthorityDashboard />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

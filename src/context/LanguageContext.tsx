@@ -25,7 +25,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.badge3": " Official Authority Access",
 
     // Traveler Portal
-    "traveler.heading": "Register Your Stay",
+    "traveler.heading": "Register Your Travel",
     "traveler.subheading":
       "Register yourself here and let us know your journey",
     "traveler.name": "Full Name",
@@ -124,7 +124,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.badge3": " आधिकारिक प्राधिकरण पहुँच",
 
     // Traveler Portal
-    "traveler.heading": "अपना ठहरना पंजीकृत करें",
+    "traveler.heading": "अपनी यात्रा पंजीकृत करें",
     "traveler.subheading":
       "यहां अपना पंजीकरण करें और हमें अपनी यात्रा के बारे में बताएं",
     "traveler.name": "पूरा नाम",
@@ -218,7 +218,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.badge1": "暗号化された詳細情報",
     "hero.badge2": "24時間365日のサポート",
     "hero.badge3": "公式アクセス",
-    "traveler.heading": "ご滞在の登録",
+    "traveler.heading": "ご旅行の登録",
     "traveler.subheading": "ご旅行についてお知らせください",
     "traveler.name": "氏名",
     "traveler.passport": "パスポート番号",
@@ -300,7 +300,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.badge1": "Détails Cryptés",
     "hero.badge2": "Assistance 24/7",
     "hero.badge3": "Accès Officiel",
-    "traveler.heading": "Enregistrez Votre Séjour",
+    "traveler.heading": "Enregistrez Votre Voyage",
     "traveler.subheading": "Dites-nous votre parcours",
     "traveler.name": "Nom Complet",
     "traveler.passport": "Numéro de Passeport",
@@ -381,7 +381,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.badge1": "Шифрование данных",
     "hero.badge2": "Поддержка 24/7",
     "hero.badge3": "Официальный доступ",
-    "traveler.heading": "Регистрация пребывания",
+    "traveler.heading": "Регистрация путешествия",
     "traveler.subheading": "Зарегистрируйтесь здесь",
     "traveler.name": "Полное имя",
     "traveler.passport": "Номер паспорта",

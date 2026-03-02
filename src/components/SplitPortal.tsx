@@ -1,4 +1,4 @@
-import { Luggage, Lock, ShieldCheck } from "lucide-react";
+import { Luggage, Lock, ShieldCheck, Plane, Building2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useLang } from "@/context/LanguageContext";
 import { Input } from "@/components/ui/input";
@@ -18,10 +18,15 @@ const SplitPortal = () => {
     navigate("/authority-dashboard");
   };
 
+  const handleAirportSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate("/airport-login");
+  };
+
   return (
     <section id="tourist-login" className="scroll-mt-24 py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8">
           <div className="bg-card rounded-2xl border border-border shadow-sm overflow-hidden">
             {/* Card header */}
             <div className="bg-saffron-light px-6 py-5 border-b border-saffron/20">
@@ -124,6 +129,43 @@ const SplitPortal = () => {
               <p className="text-[11px] text-white/35 text-center leading-relaxed pt-1">{t("authority.note")}</p>
             </form>
           </div>
+
+          {/* Airport Authority Portal */}
+          <div className="bg-slate-900 rounded-2xl border border-slate-700 shadow-sm overflow-hidden flex flex-col justify-between">
+            {/* Card header */}
+            <div className="bg-slate-800/80 px-6 py-5 border-b border-slate-700 w-full">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center p-2 rounded-xl bg-sky-500/20">
+                    <Plane className="w-6 h-6 text-sky-400" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold text-white">Airport Portal</h2>
+                    <p className="text-xs text-sky-400 font-medium">Arrival Registration</p>
+                  </div>
+                </div>
+                <span className="inline-flex items-center gap-1.5 bg-sky-500/20 text-sky-400 text-xs font-semibold px-3 py-1.5 rounded-full border border-sky-500/30">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  Official Use
+                </span>
+              </div>
+              <p className="text-sm text-white/60 mt-3 leading-relaxed">Secure portal for verifying and registering incoming travelers.</p>
+            </div>
+
+            <div className="p-6 flex-1 flex flex-col justify-center">
+              <div className="text-center mb-6">
+                <Building2 className="w-12 h-12 text-slate-600 mx-auto mb-4" />
+                <p className="text-sm text-slate-400">Exclusive access for Airport Authority officers.</p>
+              </div>
+              <button
+                onClick={handleAirportSubmit}
+                className="w-full h-11 mt-auto rounded-xl bg-sky-600 text-white font-semibold text-sm hover:bg-sky-500 transition-colors shadow-sm"
+              >
+                Access Portal
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
