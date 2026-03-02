@@ -38,17 +38,19 @@ All colors MUST be HSL.
     --input: 214 32% 91%;
     --ring: 33 100% 60%;
 
-    /* Trust Tour custom tokens */
+    /* Trust Tour custom tokens - enhanced vibrancy */
     --saffron: 33 100% 60%;
-    --saffron-light: 36 100% 94%;
+    --saffron-light: 36 100% 90%;
     --saffron-dark: 28 90% 45%;
-    --teal: 173 72% 31%;
-    --teal-light: 173 60% 93%;
-    --teal-dark: 173 80% 22%;
-    --india-green: 133 70% 27%;
+    
+    --teal: 178 100% 32%; /* More vibrant teal */
+    --teal-light: 178 80% 90%;
+    --teal-dark: 178 100% 20%;
+    
+    --india-green: 142 71% 33%;
     --slate-text: 215 28% 17%;
     --slate-muted: 215 16% 47%;
-    --authority-bg: 215 28% 13%;
+    --authority-bg: 222 47% 11%;
 
     --radius: 0.75rem;
 
@@ -114,6 +116,34 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-slate-50 text-slate-800 font-body antialiased;
+    /* Subtle glowing mesh background global fallback */
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(45, 212, 191, 0.05), transparent 25%), 
+      radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.05), transparent 25%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-teal/20 text-teal-dark;
+  }
+}
+
+/* Glassmorphism utilities */
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-lg;
+  }
+  
+  .glass-dark {
+    @apply bg-slate-900/80 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r;
   }
 }

@@ -12,7 +12,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-slate-text text-white">
+    <footer className="bg-authority-bg text-white relative overflow-hidden">
+      {/* Decorative background element */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-teal/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
       {/* Flag stripe */}
       <div className="flex h-1">
         <div className="flex-1 bg-saffron" />
@@ -32,8 +34,8 @@ const Footer = () => {
                   <MapPin className="w-2.5 h-2.5 text-teal absolute -bottom-0.5 left-1/2 -translate-x-1/2" />
                 </div>
               </div>
-              <span className="text-lg font-bold">
-                Trust <span className="text-saffron">Tour</span>
+              <span className="text-lg font-black tracking-tight">
+                Trust <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-light to-white">Tour</span>
               </span>
             </div>
             <p className="text-sm text-white/60 leading-relaxed max-w-xs">{t("footer.mission")}</p>
@@ -47,8 +49,9 @@ const Footer = () => {
                 <li key={key}>
                   <a
                     href={href}
-                    className="text-sm text-white/60 hover:text-saffron transition-colors"
+                    className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group"
                   >
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal/50 group-hover:bg-teal transition-colors"></span>
                     {t(key)}
                   </a>
                 </li>
@@ -58,7 +61,7 @@ const Footer = () => {
 
           {/* Ministry branding */}
           <div>
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-xl px-4 py-3 mb-4">
+            <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl p-3 mb-6 backdrop-blur-sm">
               <span className="text-lg">🇮🇳</span>
               <div>
                 <p className="text-xs font-semibold text-white">{t("footer.ministry")}</p>

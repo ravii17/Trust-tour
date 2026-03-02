@@ -168,12 +168,15 @@ const AirportAuthorityDashboard = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Final validation for Section 5 before submitting
+        if (!validateSection(5)) return;
+
         setIsSubmitting(true);
+        const uniqueId = generatePassengerId();
 
         try {
-            const uniqueId = generatePassengerId();
-
-            // Create a new document in the "airport_registrations" collection
+            // Attempt to create a new document in the "airport_registrations" collection
             const docRef = await addDoc(collection(db, "airport_registrations"), {
                 ...formData,
                 passengerId: uniqueId,
@@ -188,16 +191,16 @@ const AirportAuthorityDashboard = () => {
                 description: "The data has been securely stored. Check the unique ID generated."
             });
 
-            setRegisteredPassengerId(uniqueId);
-            window.scrollTo({ top: 0, behavior: "smooth" });
-
         } catch (error) {
             console.error("Error adding document: ", error);
-            toast.error("Registration Failed", {
-                description: "Could not connect to database. Please check configuration."
+            // We still generate the ID and show success even if DB failed for demo purposes
+            toast.warning("Database Connection Failed", {
+                description: "The ID was generated, but could not be saved to the database. Check Firebase config."
             });
         } finally {
             setIsSubmitting(false);
+            setRegisteredPassengerId(uniqueId);
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
     };
 
