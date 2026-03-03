@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 const Header = () => {
   const { lang, setLang, t } = useLang();
 
-  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru") => {
+  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de") => {
     setLang(newLang);
   };
 
@@ -23,6 +23,8 @@ const Header = () => {
       case "ja": return "日本語";
       case "fr": return "Français";
       case "ru": return "Русский";
+      case "es": return "Español";
+      case "de": return "Deutsch";
       default: return "English";
     }
   };
@@ -88,6 +90,12 @@ const Header = () => {
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("ru")} className="font-medium cursor-pointer">
                   Русский (RU)
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("es")} className="font-medium cursor-pointer">
+                  Español (ES)
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("de")} className="font-medium cursor-pointer">
+                  Deutsch (DE)
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
