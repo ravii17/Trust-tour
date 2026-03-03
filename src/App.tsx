@@ -12,6 +12,7 @@ import AirportAuthorityLogin from "./pages/AirportAuthorityLogin";
 import AirportAuthorityDashboard from "./pages/AirportAuthorityDashboard";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "@/context/LanguageContext";
+import EmergencyButton from "@/components/EmergencyButton";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
       <Sonner />
       <LanguageProvider>
         <BrowserRouter>
+          <EmergencyButton />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/register-your-stay" element={<RegisterYourStay />} />

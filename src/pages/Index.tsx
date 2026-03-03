@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import SplitPortal from "@/components/SplitPortal";
+import HowItWorksSection from "@/components/HowItWorksSection";
+import FeaturesSection from "@/components/FeaturesSection";
 import SafetyGuide from "@/components/SafetyGuide";
 import GoldenRules from "@/components/GoldenRules";
 import Footer from "@/components/Footer";
@@ -11,7 +12,8 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <SplitPortal />
+        <HowItWorksSection />
+        <FeaturesSection />
         <SafetyGuide />
         <GoldenRules />
       </main>

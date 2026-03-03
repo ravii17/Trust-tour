@@ -1,4 +1,5 @@
 import { Shield, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLang } from "@/context/LanguageContext";
 
 const Footer = () => {
@@ -23,10 +24,10 @@ const Footer = () => {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid sm:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
           {/* Brand */}
-          <div className="sm:col-span-1">
+          <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-3">
               <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-saffron/20">
                 <div className="relative">
@@ -56,6 +57,25 @@ const Footer = () => {
                   </a>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Partner Portals */}
+          <div>
+            <h4 className="font-semibold text-sm mb-4 text-white/90">Partner Portals</h4>
+            <ul className="space-y-2.5">
+              <li>
+                <Link to="/authority-dashboard" className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal/50 group-hover:bg-teal transition-colors"></span>
+                  Police Portal
+                </Link>
+              </li>
+              <li>
+                <Link to="/airport-login" className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal/50 group-hover:bg-teal transition-colors"></span>
+                  Airport Portal
+                </Link>
+              </li>
             </ul>
           </div>
 

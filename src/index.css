@@ -8,21 +8,23 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 215 28% 17%;
+    --background: 0 0% 98%;
+    /* Very Light Grey/White */
+    --foreground: 222 10% 12%;
+    /* #1D1D1F Dark grey text */
 
     --card: 0 0% 100%;
-    --card-foreground: 215 28% 17%;
+    --card-foreground: 222 10% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 28% 17%;
+    --popover-foreground: 222 10% 12%;
 
-    /* Saffron as primary */
-    --primary: 33 100% 60%;
+    /* Soft Blue as primary for Trust & Security (#0071E3) */
+    --primary: 210 100% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 215 28% 17%;
+    --secondary-foreground: 222 10% 12%;
 
     --muted: 210 20% 96%;
     --muted-foreground: 215 16% 47%;
@@ -31,43 +33,38 @@ All colors MUST be HSL.
     --accent: 173 72% 31%;
     --accent-foreground: 0 0% 100%;
 
+    /* Emergency Red */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 33 100% 60%;
+    --ring: 210 100% 45%;
+    /* Primary Blue Ring */
 
-    /* Trust Tour custom tokens - enhanced vibrancy */
+    /* Trust Tour custom tokens */
     --saffron: 33 100% 60%;
     --saffron-light: 36 100% 90%;
     --saffron-dark: 28 90% 45%;
-    
-    --teal: 178 100% 32%; /* More vibrant teal */
+
+    --teal: 178 100% 32%;
     --teal-light: 178 80% 90%;
     --teal-dark: 178 100% 20%;
-    
+
     --india-green: 142 71% 33%;
-    --slate-text: 215 28% 17%;
+    --slate-text: 222 10% 12%;
     --slate-muted: 215 16% 47%;
     --authority-bg: 222 47% 11%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
+    --sidebar-primary: 210 100% 45%;
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -116,15 +113,15 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-slate-50 text-slate-800 font-body antialiased;
-    /* Subtle glowing mesh background global fallback */
-    background-image: 
-      radial-gradient(circle at 15% 50%, rgba(45, 212, 191, 0.05), transparent 25%), 
-      radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.05), transparent 25%);
-    background-attachment: fixed;
+    @apply bg-background text-foreground font-body antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-sans tracking-tight;
   }
 
@@ -138,11 +135,11 @@ All colors MUST be HSL.
   .glass {
     @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-lg;
   }
-  
+
   .glass-dark {
     @apply bg-slate-900/80 backdrop-blur-xl border border-white/10 shadow-2xl;
   }
-  
+
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r;
   }
