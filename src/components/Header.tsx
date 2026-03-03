@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 const Header = () => {
   const { lang, setLang, t } = useLang();
 
-  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de") => {
+  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh") => {
     setLang(newLang);
   };
 
@@ -25,6 +25,8 @@ const Header = () => {
       case "ru": return "Русский";
       case "es": return "Español";
       case "de": return "Deutsch";
+      case "ar": return "العربية";
+      case "zh": return "中文";
       default: return "English";
     }
   };
@@ -96,6 +98,12 @@ const Header = () => {
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("de")} className="font-medium cursor-pointer">
                   Deutsch (DE)
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("ar")} className="font-medium cursor-pointer">
+                  العربية (AR)
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("zh")} className="font-medium cursor-pointer">
+                  中文 (ZH)
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
