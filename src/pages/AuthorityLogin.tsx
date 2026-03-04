@@ -6,17 +6,33 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/lib/firebase";
+import { toast } from "sonner";
 
 const AuthorityLogin = () => {
     const { t } = useLang();
     const navigate = useNavigate();
     const [officerId, setOfficerId] = useState("");
     const [password, setPassword] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
-    const handleLogin = (e: React.FormEvent) => {
+    const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (officerId && password) {
+        if (!officerId || !password) return;
+
+        setIsLoading(true);
+        try {
+            // Treat officer ID as email if it contains @, otherwise append domain for Firebase Auth
+            const loginEmail = officerId.includes('@') ? officerId : `${officerId}@authority.gov.in`;
+            await signInWithEmailAndPassword(auth, loginEmail, password);
+            toast.success("Authentication successful");
             navigate("/authority-dashboard");
+        } catch (error: any) {
+            console.error("Login failed", error);
+            toast.error(error.message || "Invalid credentials. Please try again.");
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -71,10 +87,11 @@ const AuthorityLogin = () => {
                                 <div className="pt-2">
                                     <button
                                         type="submit"
-                                        className="w-full h-12 rounded-xl bg-teal text-white font-semibold text-sm hover:bg-teal-dark transition-all duration-200 shadow-md shadow-teal/20 hover:shadow-lg hover:shadow-teal/30 hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                                        disabled={isLoading}
+                                        className="w-full h-12 rounded-xl bg-teal text-white font-semibold text-sm hover:bg-teal-dark transition-all duration-200 shadow-md shadow-teal/20 hover:shadow-lg hover:shadow-teal/30 hover:-translate-y-0.5 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                                     >
-                                        {t("authority.login")}
-                                        <ArrowRight className="w-4 h-4" />
+                                        {isLoading ? "Authenticating..." : t("authority.login")}
+                                        {!isLoading && <ArrowRight className="w-4 h-4" />}
                                     </button>
                                 </div>
                             </form>

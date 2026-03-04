@@ -129,7 +129,7 @@ const Header = () => {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild className="cursor-pointer">
-                  <Link to="/authority-dashboard" className="w-full flex items-center gap-2">
+                  <Link to="/authority-login" className="w-full flex items-center gap-2">
                     <Shield className="w-4 h-4 text-slate-500" /> Police Portal
                   </Link>
                 </DropdownMenuItem>
@@ -182,7 +182,7 @@ const Header = () => {
                 Tourist Login
               </Button>
             </Link>
-            <Link to="/authority-dashboard" onClick={() => setMobileMenuOpen(false)}>
+            <Link to="/authority-login" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" className="w-full justify-start rounded-xl gap-2 border-slate-200 text-slate-700">
                 <Shield className="w-4 h-4" />
                 Police Portal
