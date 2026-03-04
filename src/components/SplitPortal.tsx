@@ -15,7 +15,7 @@ const SplitPortal = () => {
 
   const handleAuthoritySubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate("/authority-dashboard");
+    navigate("/authority-login");
   };
 
   const handleAirportSubmit = (e: React.FormEvent) => {
@@ -102,32 +102,18 @@ const SplitPortal = () => {
             </div>
 
             {/* Login form */}
-            <form onSubmit={handleAuthoritySubmit} className="p-6 space-y-5">
-              <div className="space-y-1.5">
-                <Label className="text-white/80 font-medium text-sm">{t("authority.officer_id")}</Label>
-                <Input
-                  required
-                  placeholder={t("authority.officer_id_placeholder")}
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus-visible:ring-teal"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <Label className="text-white/80 font-medium text-sm">{t("authority.password")}</Label>
-                <Input
-                  required
-                  type="password"
-                  placeholder={t("authority.password_placeholder")}
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus-visible:ring-teal"
-                />
+            <div className="p-6 flex-1 flex flex-col justify-center">
+              <div className="text-center mb-6">
+                <ShieldCheck className="w-12 h-12 text-teal/40 mx-auto mb-4" />
+                <p className="text-sm text-white/60 pb-1">Exclusive access for Police & Regional Authorities.</p>
               </div>
               <button
-                type="submit"
-                className="w-full h-11 rounded-xl bg-teal text-white font-semibold text-sm hover:bg-teal-dark transition-colors shadow-sm"
+                onClick={handleAuthoritySubmit}
+                className="w-full h-11 mt-auto rounded-xl bg-teal text-white font-semibold text-sm hover:bg-teal-dark transition-colors shadow-sm"
               >
-                {t("authority.login")}
+                Access Portal
               </button>
-              <p className="text-[11px] text-white/35 text-center leading-relaxed pt-1">{t("authority.note")}</p>
-            </form>
+            </div>
           </div>
 
           {/* Airport Authority Portal */}
