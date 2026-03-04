@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { v4 as uuidv4 } from "uuid";
 import { Link, useNavigate } from "react-router-dom";
 import {
     Building2,
@@ -88,16 +88,6 @@ const AirportAuthorityDashboard = () => {
     const [activeSection, setActiveSection] = useState(1);
     const [registeredPassengerId, setRegisteredPassengerId] = useState<string | null>(null);
 
-    // Generate a unique 8-character alphanumeric ID
-    const generatePassengerId = () => {
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        let id = 'PASS-';
-        for (let i = 0; i < 6; i++) {
-            id += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        return id;
-    };
-
     const copyToClipboard = (text: string) => {
         navigator.clipboard.writeText(text);
         toast.success("Copied to clipboard!");
@@ -173,13 +163,17 @@ const AirportAuthorityDashboard = () => {
         if (!validateSection(5)) return;
 
         setIsSubmitting(true);
-        const uniqueId = generatePassengerId();
+
+        // Generate Tourist ID when form is submitted
+        const touristId = uuidv4();
+        console.log(touristId);
 
         try {
             // Write traveler details to the new unified traveler_db collection
             const docRef = await addDoc(collection(db, "traveler_db"), {
                 ...formData,
-                passengerId: uniqueId,
+                passengerId: touristId, // Maintained for backward compatibility in UI
+                touristId: touristId,
                 embassyContactAutoAssigned: getEmbassyContact(formData.nationality),
                 registeredAt: serverTimestamp(),
                 registeredBy: "Airport Authority ID Placeholder", // You could store the logged in user here
@@ -204,7 +198,7 @@ const AirportAuthorityDashboard = () => {
             });
         } finally {
             setIsSubmitting(false);
-            setRegisteredPassengerId(uniqueId);
+            setRegisteredPassengerId(touristId);
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
     };
