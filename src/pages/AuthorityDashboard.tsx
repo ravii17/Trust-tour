@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup, Circle } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { collection, addDoc, onSnapshot, query, serverTimestamp } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useToast } from "@/components/ui/use-toast";
@@ -22,40 +24,90 @@ const moderateZoneStyle = { color: "orange", fillColor: "orange", fillOpacity: 0
 
 export default function AuthorityDashboard() {
     const { toast } = useToast();
-    const [zones, setZones] = useState([
-        { id: 1, type: "danger", center: [48.86, 2.34], radius: 500 },
-        { id: 2, type: "moderate", center: [48.87, 2.33], radius: 800 },
-    ]);
-
-    const [tourists] = useState([
-        { id: "T1", name: "Alex Doe", lat: 48.8588, lng: 2.277, status: "safe", phone: "+1 234 567 890" },
-        { id: "T2", name: "Sarah Smith", lat: 48.865, lng: 2.30, status: "sos", phone: "+44 7700 900077" },
-        { id: "T3", name: "Yuki Tanaka", lat: 48.875, lng: 2.32, status: "safe", phone: "+81 90 1234 5678" }
-    ]);
-
-    const [sosAlerts, setSosAlerts] = useState([
-        { id: 1, touristName: "Sarah Smith", location: "Near Champs-Élysées", time: "10 mins ago", valid: true },
-        { id: 2, touristName: "John Matthews", location: "Louvre Museum Area", time: "25 mins ago", valid: true }
-    ]);
+    const [zones, setZones] = useState<any[]>([]);
+    const [tourists, setTourists] = useState<any[]>([]);
+    const [sosAlerts, setSosAlerts] = useState<any[]>([]);
 
     const [broadcastMsg, setBroadcastMsg] = useState("");
 
-    const handleAddZone = (type: "danger" | "moderate") => {
-        // In a real app, this would be an interactive map click, but we simulate it by adding to the center
+    // Read real-time tourists and zones continuously from Firebase
+    React.useEffect(() => {
+        // Sync Travelers
+        const unsubTravelers = onSnapshot(query(collection(db, "traveler_db")), (snapshot) => {
+            const travelerData: any[] = [];
+            const alerts: any[] = [];
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+
+                // Skip travelers without a registered full name
+                if (!data.fullName || data.fullName.trim() === "") {
+                    return;
+                }
+
+                const touristItem = {
+                    id: doc.id,
+                    name: data.fullName,
+                    lat: data.location?.lat || 48.8588, // fallback to avoid crashing display
+                    lng: data.location?.lng || 2.277,
+                    status: data.status || "safe",
+                    phone: data.indianMobile || "N/A"
+                };
+                travelerData.push(touristItem);
+
+                if (data.status === "sos") {
+                    alerts.push({
+                        id: doc.id,
+                        touristName: data.fullName,
+                        location: "Detected Location", // Can be reversed geocoded in real app
+                        time: "Just now",
+                        valid: true
+                    });
+                }
+            });
+            setTourists(travelerData);
+            setSosAlerts(alerts);
+        });
+
+        // Sync Zones
+        const unsubZones = onSnapshot(query(collection(db, "police_db")), (snapshot) => {
+            const zonesData: any[] = [];
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+                if (data.type === "danger" || data.type === "moderate") {
+                    zonesData.push({ id: doc.id, ...data });
+                }
+            });
+            setZones(zonesData);
+        });
+
+        return () => {
+            unsubTravelers();
+            unsubZones();
+        };
+    }, []);
+
+    const handleAddZone = async (type: "danger" | "moderate") => {
         const newZone = {
-            id: Date.now(),
             type,
             center: [48.85 + (Math.random() - 0.5) * 0.05, 2.3 + (Math.random() - 0.5) * 0.05],
-            radius: type === "danger" ? 400 : 700
+            radius: type === "danger" ? 400 : 700,
+            createdBy: "Police Dashboard",
+            timestamp: serverTimestamp()
         };
-        setZones([newZone, ...zones]);
-        toast({
-            title: "Zone Added",
-            description: `New ${type} zone has been added to the map.`,
-        });
+
+        try {
+            await addDoc(collection(db, "police_db"), newZone);
+            toast({
+                title: "Zone Added",
+                description: `New ${type} zone has been pushed to the central map database.`,
+            });
+        } catch (error) {
+            console.error(error);
+            toast({ title: "Error", description: "Failed to add zone to database.", variant: "destructive" });
+        }
     };
 
-    const handleBroadcast = (e: React.FormEvent) => {
+    const handleBroadcast = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!broadcastMsg.trim()) return;
 
@@ -97,7 +149,7 @@ export default function AuthorityDashboard() {
                             <Users className="w-5 h-5 text-teal" />
                             <div>
                                 <p className="text-sm font-semibold text-white/90">Active Tourists</p>
-                                <p className="text-xl font-bold">1,248</p>
+                                <p className="text-xl font-bold">{tourists.length}</p>
                             </div>
                         </div>
                     </div>

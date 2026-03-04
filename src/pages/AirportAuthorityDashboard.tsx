@@ -176,14 +176,19 @@ const AirportAuthorityDashboard = () => {
         const uniqueId = generatePassengerId();
 
         try {
-            // Attempt to create a new document in the "airport_registrations" collection
-            const docRef = await addDoc(collection(db, "airport_registrations"), {
+            // Write traveler details to the new unified traveler_db collection
+            const docRef = await addDoc(collection(db, "traveler_db"), {
                 ...formData,
                 passengerId: uniqueId,
                 embassyContactAutoAssigned: getEmbassyContact(formData.nationality),
                 registeredAt: serverTimestamp(),
                 registeredBy: "Airport Authority ID Placeholder", // You could store the logged in user here
-                status: "Active"
+                status: "safe", // Default safe status for Police Dashboard tracking
+                // Mock random location around a central point (-2 to +2 offset for testing)
+                location: {
+                    lat: 48.864716 + (Math.random() - 0.5) * 0.1,
+                    lng: 2.349014 + (Math.random() - 0.5) * 0.1
+                }
             });
 
             console.log("Document written with ID: ", docRef.id);
