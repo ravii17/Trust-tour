@@ -15,8 +15,15 @@ const AirportAuthorityLogin = () => {
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        if (officerId && password) {
+
+        // Mock Validation for Airport Authority
+        const validOfficerId = "AIR-123";
+        const validPassword = "securepassword";
+
+        if (officerId === validOfficerId && password === validPassword) {
             navigate("/airport-dashboard");
+        } else {
+            alert("Invalid Officer ID or Passcode.");
         }
     };
 
