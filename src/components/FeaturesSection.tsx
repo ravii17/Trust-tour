@@ -20,10 +20,10 @@ const FeaturesSection = () => {
             reversed: true,
         },
         {
-            title: "Secure government database",
+            title: "Blockchain based government encrypted database",
             description: "Your travel data is encrypted and housed within secured government servers. We prioritize your privacy and ensure data is strictly used for safety purposes.",
             icon: <ShieldCheck className="w-6 h-6 text-primary" />,
-            image: "https://images.unsplash.com/photo-1507925922893-873105f4eb1b?auto=format&fit=crop&q=80&w=800",
+            image: "/blockchain-db-feature.png",
             reversed: false,
         },
         {
