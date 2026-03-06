@@ -61,12 +61,16 @@ const HeroSection = () => {
 
           {/* Right Illustration */}
           <div className="relative hidden lg:block">
-            {/* Simple geometric abstract illustration denoting travel & security */}
-            <div className="relative w-full aspect-square max-w-lg mx-auto">
-              {/* Central Shield/Card */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-full animate-pulse blur-3xl" />
+            <div className="relative w-full aspect-[4/5] max-w-lg mx-auto">
 
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-80 bg-white rounded-3xl shadow-2xl border border-slate-100 p-6 flex flex-col items-center justify-center gap-6 z-10 transform scale-105 transition-transform hover:scale-110 duration-500">
+              {/* Photo Background */}
+              <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden shadow-2xl">
+                <img src="/hero-image.png" alt="Tourists safely exploring India" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent mix-blend-multiply" />
+              </div>
+
+              {/* Central Shield/Card - Floating over the image */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 bg-white/95 backdrop-blur-md rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.12)] border border-white p-6 flex flex-col items-center justify-center gap-6 z-10 transform transition-transform hover:-translate-y-1 hover:scale-105 duration-500">
                 <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
                   <ShieldAlert className="w-10 h-10 text-primary" />
                 </div>
@@ -74,16 +78,16 @@ const HeroSection = () => {
                   <div className="h-4 bg-slate-100 rounded-full w-3/4 mx-auto" />
                   <div className="h-4 bg-slate-100 rounded-full w-1/2 mx-auto" />
                 </div>
-                <div className="w-full mt-4 bg-teal/10 text-teal-dark text-xs font-bold text-center py-2 rounded-lg">
+                <div className="w-full mt-4 bg-teal/10 text-teal-dark text-xs font-bold text-center py-2.5 rounded-lg border border-teal/20">
                   VERIFIED SAFE
                 </div>
               </div>
 
               {/* Decorative floating elements */}
-              <div className="absolute top-1/4 left-0 w-24 h-24 bg-white rounded-2xl shadow-xl border border-slate-100 flex items-center justify-center z-20 animate-bounce" style={{ animationDuration: '3s' }}>
+              <div className="absolute top-[15%] -left-8 w-24 h-24 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white flex items-center justify-center z-20 animate-bounce" style={{ animationDuration: '3s' }}>
                 <div className="w-12 h-12 bg-slate-100 rounded-full" />
               </div>
-              <div className="absolute bottom-1/4 right-0 w-32 h-20 bg-white rounded-2xl shadow-xl border border-slate-100 flex items-center justify-center z-20 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
+              <div className="absolute bottom-[20%] -right-8 w-32 h-20 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white flex items-center justify-center z-20 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
                 <div className="flex gap-2">
                   <div className="w-3 h-3 bg-teal rounded-full" />
                   <div className="w-12 h-3 bg-slate-100 rounded-full" />
