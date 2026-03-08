@@ -24,7 +24,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl") => {
+  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl" | "tr") => {
     setLang(newLang);
     setMobileMenuOpen(false);
   };
@@ -44,6 +44,7 @@ const Header = () => {
       case "pt": return "Português";
       case "ko": return "한국어";
       case "nl": return "Nederlands";
+      case "tr": return "Türkçe";
       default: return "English";
     }
   };
@@ -120,6 +121,7 @@ const Header = () => {
                 <DropdownMenuItem onClick={() => handleLanguageChange("pt")} className="cursor-pointer">Português (PT)</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("ko")} className="cursor-pointer">한국어 (KO)</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("nl")} className="cursor-pointer">Nederlands (NL)</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("tr")} className="cursor-pointer">Türkçe (TR)</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
