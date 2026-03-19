@@ -24,7 +24,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl" | "tr" | "sv" | "he" | "hu" | "el" | "pl" | "sw" | "id") => {
+  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl" | "tr" | "sv" | "he" | "hu" | "el" | "pl" | "sw" | "id" | "th") => {
     setLang(newLang);
     setMobileMenuOpen(false);
   };
@@ -52,6 +52,7 @@ const Header = () => {
       case "pl": return "Polski";
       case "sw": return "Kiswahili";
       case "id": return "Bahasa Indonesia";
+      case "th": return "ไทย";
       default: return "English";
     }
   };
@@ -136,6 +137,7 @@ const Header = () => {
                 <DropdownMenuItem onClick={() => handleLanguageChange("pl")} className="cursor-pointer">Polski (PL)</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("sw")} className="cursor-pointer">Kiswahili (SW)</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("id")} className="cursor-pointer">Bahasa Indonesia (ID)</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("th")} className="cursor-pointer">ภาษาไทย (TH)</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
