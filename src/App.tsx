@@ -11,6 +11,9 @@ import AuthorityDashboard from "./pages/AuthorityDashboard";
 import AuthorityLogin from "./pages/AuthorityLogin";
 import AirportAuthorityLogin from "./pages/AirportAuthorityLogin";
 import AirportAuthorityDashboard from "./pages/AirportAuthorityDashboard";
+import TravelDetails from "./pages/TravelDetails";
+import EmergencyContacts from "./pages/EmergencyContacts";
+import SafetyStatus from "./pages/SafetyStatus";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "@/context/LanguageContext";
 import EmergencyButton from "@/components/EmergencyButton";
@@ -34,6 +37,9 @@ const App = () => (
             <Route path="/authority-login" element={<AuthorityLogin />} />
             <Route path="/airport-login" element={<AirportAuthorityLogin />} />
             <Route path="/airport-dashboard" element={<AirportAuthorityDashboard />} />
+            <Route path="/travel-details" element={<TravelDetails />} />
+            <Route path="/emergency-contacts" element={<EmergencyContacts />} />
+            <Route path="/safety-status" element={<SafetyStatus />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

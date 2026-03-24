@@ -41,14 +41,14 @@ const Dashboard = () => {
 
                             <nav className="space-y-1 mt-4">
                                 {[
-                                    { icon: <User className="w-5 h-5" />, label: "Profile", active: true },
-                                    { icon: <CreditCard className="w-5 h-5" />, label: "Travel Details", active: false },
-                                    { icon: <Phone className="w-5 h-5" />, label: "Emergency Contacts", active: false },
-                                    { icon: <Activity className="w-5 h-5" />, label: "Safety Status", active: false },
+                                    { icon: <User className="w-5 h-5" />, label: "Profile", path: "/dashboard", active: true },
+                                    { icon: <CreditCard className="w-5 h-5" />, label: "Travel Details", path: "/travel-details", active: false },
+                                    { icon: <Phone className="w-5 h-5" />, label: "Emergency Contacts", path: "/emergency-contacts", active: false },
+                                    { icon: <Activity className="w-5 h-5" />, label: "Safety Status", path: "/safety-status", active: false },
                                 ].map((item) => (
-                                    <a
+                                    <Link
                                         key={item.label}
-                                        href="#"
+                                        to={item.path}
                                         className={`flex items-center gap-3 px-3 py-2.5 rounded-xl font-medium transition-colors ${item.active
                                             ? 'bg-primary/5 text-primary'
                                             : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
@@ -56,15 +56,15 @@ const Dashboard = () => {
                                     >
                                         {item.icon}
                                         {item.label}
-                                    </a>
+                                    </Link>
                                 ))}
                             </nav>
 
                             <div className="pt-6 mt-6 border-t border-slate-100">
-                                <a href="/" className="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-red-600 font-medium transition-colors rounded-xl hover:bg-red-50">
+                                <Link to="/" className="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-red-600 font-medium transition-colors rounded-xl hover:bg-red-50">
                                     <LogOut className="w-5 h-5" />
                                     Logout
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </aside>
