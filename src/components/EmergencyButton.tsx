@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { AlertTriangle, X, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "react-router-dom";
 
 const EmergencyButton = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
     const [isSending, setIsSending] = useState(false);
     const [isSent, setIsSent] = useState(false);
     const [countdown, setCountdown] = useState(3);
@@ -47,6 +49,10 @@ const EmergencyButton = () => {
             }, 3000);
         }, 1500);
     };
+
+    if (location.pathname === "/") {
+        return null;
+    }
 
     return (
         <>

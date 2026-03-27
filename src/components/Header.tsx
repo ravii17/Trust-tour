@@ -171,10 +171,12 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button variant="outline" className="rounded-full border-destructive/30 text-destructive hover:bg-destructive hover:text-white font-medium h-9 px-4 gap-2 transition-all shadow-sm">
-              <Phone className="w-4 h-4" />
-              SOS
-            </Button>
+            {location.pathname !== "/" && (
+              <Button variant="outline" className="rounded-full border-destructive/30 text-destructive hover:bg-destructive hover:text-white font-medium h-9 px-4 gap-2 transition-all shadow-sm">
+                <Phone className="w-4 h-4" />
+                SOS
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -224,10 +226,12 @@ const Header = () => {
                 Airport Portal
               </Button>
             </Link>
-            <Button variant="outline" className="w-full justify-center mt-2 rounded-xl border-destructive/30 text-destructive gap-2">
-              <Phone className="w-4 h-4" />
-              SOS
-            </Button>
+            {location.pathname !== "/" && (
+              <Button variant="outline" className="w-full justify-center mt-2 rounded-xl border-destructive/30 text-destructive gap-2">
+                <Phone className="w-4 h-4" />
+                SOS
+              </Button>
+            )}
           </div>
         </div>
       )}
