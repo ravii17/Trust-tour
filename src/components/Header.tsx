@@ -9,12 +9,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./ThemeToggle";
 
 const Header = () => {
   const { lang, setLang, t } = useLang();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+
+  const isHomePage = location.pathname === "/";
+  const isTop = isHomePage && !isScrolled;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,26 +73,26 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-b ${isScrolled
-        ? "bg-white/95 backdrop-blur-md border-slate-200 shadow-sm py-2"
-        : "bg-transparent border-transparent py-4"
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-b ${isTop
+        ? "bg-transparent border-transparent py-4"
+        : "bg-white/85 dark:bg-slate-950/85 backdrop-blur-md border-black/10 dark:border-white/10 shadow-sm py-2"
         }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+            <div className={`flex items-center justify-center w-10 h-10 rounded-xl transition-colors bg-primary/10 dark:bg-white/10 group-hover:bg-primary/20 dark:group-hover:bg-white/20`}>
               <div className="relative">
-                <Shield className="w-6 h-6 text-primary" />
-                <MapPin className="w-3 h-3 text-white absolute -bottom-0.5 left-1/2 -translate-x-1/2" />
+                <Shield className="w-6 h-6 text-primary dark:text-white" />
+                <MapPin className="w-3 h-3 text-white dark:text-slate-900 absolute -bottom-0.5 left-1/2 -translate-x-1/2" />
               </div>
             </div>
             <div>
-              <span className={`text-xl font-bold tracking-tight ${isScrolled ? 'text-slate-900' : 'text-slate-900'}`}>
-                Trust <span className="text-primary">Tour</span>
+              <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+                Trust <span className="text-primary dark:text-white">Tour</span>
               </span>
-              <p className={`text-[10px] leading-none hidden sm:block font-medium ${isScrolled ? 'text-slate-500' : 'text-slate-600'}`}>
+              <p className="text-[10px] leading-none hidden sm:block font-medium text-slate-500 dark:text-gray-300">
                 {t("header.tagline")}
               </p>
             </div>
@@ -100,8 +104,7 @@ const Header = () => {
               <a
                 key={link.name}
                 href={link.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${isScrolled ? 'text-slate-600' : 'text-slate-800'
-                  }`}
+                className="text-sm font-medium transition-colors hover:opacity-80 text-slate-700 dark:text-white/90 hover:text-primary dark:hover:text-primary"
               >
                 {link.name}
               </a>
@@ -109,10 +112,12 @@ const Header = () => {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
+            <ThemeToggle className="text-slate-600 hover:bg-slate-100 dark:text-white dark:hover:bg-white/20" />
+            
             {/* Language Switcher Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className={`gap-2 rounded-full font-medium ${isScrolled ? 'text-slate-600 hover:bg-slate-100' : 'text-slate-800 hover:bg-white/20'}`}>
+                <Button variant="ghost" size="sm" className="gap-2 rounded-full font-medium text-slate-600 hover:bg-slate-100 dark:text-white dark:hover:bg-white/20">
                   <Globe className="w-4 h-4" />
                   <span>{getLanguageLabel(lang)}</span>
                 </Button>
@@ -147,7 +152,7 @@ const Header = () => {
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button className="rounded-full bg-primary hover:bg-primary/90 text-white font-medium shadow-sm h-9 px-5 gap-2 transition-all">
+                <Button className="rounded-full font-medium shadow-sm h-9 px-5 gap-2 transition-all bg-transparent border border-slate-900 text-slate-900 hover:bg-slate-100 dark:border-white/20 dark:text-white dark:hover:bg-white/20">
                   <UserRound className="w-4 h-4" />
                   Login
                 </Button>
@@ -181,7 +186,8 @@ const Header = () => {
 
           {/* Mobile Menu Toggle */}
           <div className="lg:hidden flex items-center gap-2">
-            <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className={isScrolled ? 'text-slate-900' : 'text-slate-900'}>
+            <ThemeToggle className="text-slate-600 hover:bg-slate-100 dark:text-white dark:hover:bg-white/20" />
+            <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-slate-900 hover:bg-slate-100 dark:text-white dark:hover:bg-white/20">
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
           </div>
@@ -190,13 +196,13 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-lg py-4 px-4 flex flex-col gap-4 animate-in slide-in-from-top-2">
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-white/10 shadow-lg py-4 px-4 flex flex-col gap-4 animate-in slide-in-from-top-2">
           <nav className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.path}
-                className="text-slate-700 font-medium py-2 px-3 hover:bg-slate-50 rounded-lg"
+                className="text-slate-700 dark:text-gray-200 font-medium py-2 px-3 hover:bg-slate-50 dark:hover:bg-white/5 rounded-lg transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
@@ -204,30 +210,30 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="h-px bg-slate-100 my-1 font-medium" />
+          <div className="h-px bg-slate-100 dark:bg-white/10 my-1 font-medium" />
 
           <div className="flex flex-col gap-2 pb-2">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider px-2 pt-2">Portals</span>
+            <span className="text-xs font-semibold text-slate-500 dark:text-gray-400 uppercase tracking-wider px-2 pt-2">Portals</span>
             <Link to="/register-your-stay" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" className="w-full justify-start rounded-xl gap-2 border-slate-200 text-slate-700">
+              <Button variant="outline" className="w-full justify-start rounded-xl gap-2 border-slate-200 dark:border-white/10 text-slate-700 dark:text-gray-200 dark:bg-transparent dark:hover:bg-white/5">
                 <UserRound className="w-4 h-4" />
                 Tourist Login
               </Button>
             </Link>
             <Link to="/authority-login" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" className="w-full justify-start rounded-xl gap-2 border-slate-200 text-slate-700">
+              <Button variant="outline" className="w-full justify-start rounded-xl gap-2 border-slate-200 dark:border-white/10 text-slate-700 dark:text-gray-200 dark:bg-transparent dark:hover:bg-white/5">
                 <Shield className="w-4 h-4" />
                 Police Portal
               </Button>
             </Link>
             <Link to="/airport-login" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" className="w-full justify-start rounded-xl gap-2 border-slate-200 text-slate-700">
+              <Button variant="outline" className="w-full justify-start rounded-xl gap-2 border-slate-200 dark:border-white/10 text-slate-700 dark:text-gray-200 dark:bg-transparent dark:hover:bg-white/5">
                 <Building2 className="w-4 h-4" />
                 Airport Portal
               </Button>
             </Link>
             {location.pathname !== "/" && (
-              <Button variant="outline" className="w-full justify-center mt-2 rounded-xl border-destructive/30 text-destructive gap-2">
+              <Button variant="outline" className="w-full justify-center mt-2 rounded-xl border-destructive/30 text-destructive gap-2 dark:hover:bg-destructive/10">
                 <Phone className="w-4 h-4" />
                 SOS
               </Button>

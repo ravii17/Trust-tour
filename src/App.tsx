@@ -17,11 +17,13 @@ import SafetyStatus from "./pages/SafetyStatus";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "@/context/LanguageContext";
 import EmergencyButton from "@/components/EmergencyButton";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
+    <ThemeProvider defaultTheme="system" storageKey="trust-tour-theme">
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -45,7 +47,8 @@ const App = () => (
           </Routes>
         </BrowserRouter>
       </LanguageProvider>
-    </TooltipProvider>
+      </TooltipProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 
