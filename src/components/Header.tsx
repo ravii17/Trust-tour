@@ -9,7 +9,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "./ThemeToggle";
 
 const Header = () => {
   const { lang, setLang, t } = useLang();
@@ -112,7 +111,6 @@ const Header = () => {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
-            <ThemeToggle className="text-slate-600 hover:bg-slate-100 dark:text-white dark:hover:bg-white/20" />
             
             {/* Language Switcher Dropdown */}
             <DropdownMenu>
@@ -176,7 +174,7 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {location.pathname !== "/" && (
+            {location.pathname !== "/" && location.pathname !== "/register-your-stay" && (
               <Button variant="outline" className="rounded-full border-destructive/30 text-destructive hover:bg-destructive hover:text-white font-medium h-9 px-4 gap-2 transition-all shadow-sm">
                 <Phone className="w-4 h-4" />
                 SOS
@@ -186,7 +184,6 @@ const Header = () => {
 
           {/* Mobile Menu Toggle */}
           <div className="lg:hidden flex items-center gap-2">
-            <ThemeToggle className="text-slate-600 hover:bg-slate-100 dark:text-white dark:hover:bg-white/20" />
             <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-slate-900 hover:bg-slate-100 dark:text-white dark:hover:bg-white/20">
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
@@ -232,7 +229,7 @@ const Header = () => {
                 Airport Portal
               </Button>
             </Link>
-            {location.pathname !== "/" && (
+            {location.pathname !== "/" && location.pathname !== "/register-your-stay" && (
               <Button variant="outline" className="w-full justify-center mt-2 rounded-xl border-destructive/30 text-destructive gap-2 dark:hover:bg-destructive/10">
                 <Phone className="w-4 h-4" />
                 SOS
