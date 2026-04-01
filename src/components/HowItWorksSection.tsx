@@ -50,7 +50,7 @@ const HowItWorksSection = () => {
                             </p>
 
                             {/* Step indicator */}
-                            <div className="absolute -top-4 -right-4 w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center text-slate-200 font-extrabold text-2xl group-hover:text-primary/10 transition-colors">
+                            <div className="absolute top-4 right-4 w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-600 font-extrabold text-lg group-hover:bg-primary group-hover:text-white transition-colors shadow-sm">
                                 {index + 1}
                             </div>
                         </div>
