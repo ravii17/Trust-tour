@@ -15,6 +15,7 @@ import TravelDetails from "./pages/TravelDetails";
 import EmergencyContacts from "./pages/EmergencyContacts";
 import SafetyStatus from "./pages/SafetyStatus";
 import NotFound from "./pages/NotFound";
+import About from "./pages/About";
 import { LanguageProvider } from "@/context/LanguageContext";
 import EmergencyButton from "@/components/EmergencyButton";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -43,6 +44,7 @@ const App = () => (
             <Route path="/emergency-contacts" element={<EmergencyContacts />} />
             <Route path="/safety-status" element={<SafetyStatus />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

@@ -37,9 +37,11 @@ const HeroSection = () => {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <Button variant="ghost" className="w-full sm:w-auto rounded-full text-slate-600 hover:text-slate-900 font-semibold h-14 px-8 text-lg hover:bg-slate-100 transition-all">
-                Learn More
-              </Button>
+              <Link to="/about">
+                <Button variant="ghost" className="w-full sm:w-auto rounded-full text-slate-600 hover:text-slate-900 font-semibold h-14 px-8 text-lg hover:bg-slate-100 transition-all">
+                  Learn More
+                </Button>
+              </Link>
             </div>
 
             {/* Trust badges */}

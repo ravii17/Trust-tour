@@ -64,6 +64,7 @@ const Header = () => {
 
   const navLinks = [
     { name: t("footer.home") || "Home", path: "/" },
+    { name: "About Us", path: "/about" },
     { name: "How It Works", path: "/#how-it-works" },
     { name: "Safety Features", path: "/#features" },
     { name: "Register", path: "/register-your-stay" },
