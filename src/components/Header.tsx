@@ -175,7 +175,7 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {location.pathname !== "/" && location.pathname !== "/register-your-stay" && (
+            {location.pathname !== "/" && location.pathname !== "/register-your-stay" && location.pathname !== "/about" && (
               <Button variant="outline" className="rounded-full border-destructive/30 text-destructive hover:bg-destructive hover:text-white font-medium h-9 px-4 gap-2 transition-all shadow-sm">
                 <Phone className="w-4 h-4" />
                 SOS
@@ -230,7 +230,7 @@ const Header = () => {
                 Airport Portal
               </Button>
             </Link>
-            {location.pathname !== "/" && location.pathname !== "/register-your-stay" && (
+            {location.pathname !== "/" && location.pathname !== "/register-your-stay" && location.pathname !== "/about" && (
               <Button variant="outline" className="w-full justify-center mt-2 rounded-xl border-destructive/30 text-destructive gap-2 dark:hover:bg-destructive/10">
                 <Phone className="w-4 h-4" />
                 SOS

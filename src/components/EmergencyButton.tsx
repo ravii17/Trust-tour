@@ -50,7 +50,7 @@ const EmergencyButton = () => {
         }, 1500);
     };
 
-    if (location.pathname === "/" || location.pathname === "/register-your-stay") {
+    if (location.pathname === "/" || location.pathname === "/register-your-stay" || location.pathname === "/about") {
         return null;
     }
 
