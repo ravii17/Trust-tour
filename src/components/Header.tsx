@@ -149,33 +149,35 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button className="rounded-full font-medium shadow-sm h-9 px-5 gap-2 transition-all bg-transparent border border-slate-900 text-slate-900 hover:bg-slate-100 dark:border-white/20 dark:text-white dark:hover:bg-white/20">
-                  <UserRound className="w-4 h-4" />
-                  Login
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-[200px] rounded-xl border-slate-200">
-                <DropdownMenuItem asChild className="cursor-pointer">
-                  <Link to="/register-your-stay" className="w-full flex items-center gap-2">
-                    <UserRound className="w-4 h-4 text-slate-500" /> Tourist Login
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild className="cursor-pointer">
-                  <Link to="/authority-login" className="w-full flex items-center gap-2">
-                    <Shield className="w-4 h-4 text-slate-500" /> Police Portal
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild className="cursor-pointer">
-                  <Link to="/airport-login" className="w-full flex items-center gap-2">
-                    <Building2 className="w-4 h-4 text-slate-500" /> Airport Portal
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {!(location.pathname.includes("/authority-login") || location.pathname.includes("/airport-login")) && (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button className="rounded-full font-medium shadow-sm h-9 px-5 gap-2 transition-all bg-transparent border border-slate-900 text-slate-900 hover:bg-slate-100 dark:border-white/20 dark:text-white dark:hover:bg-white/20">
+                    <UserRound className="w-4 h-4" />
+                    Login
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-[200px] rounded-xl border-slate-200">
+                  <DropdownMenuItem asChild className="cursor-pointer">
+                    <Link to="/register-your-stay" className="w-full flex items-center gap-2">
+                      <UserRound className="w-4 h-4 text-slate-500" /> Tourist Login
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="cursor-pointer">
+                    <Link to="/authority-login" className="w-full flex items-center gap-2">
+                      <Shield className="w-4 h-4 text-slate-500" /> Police Portal
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="cursor-pointer">
+                    <Link to="/airport-login" className="w-full flex items-center gap-2">
+                      <Building2 className="w-4 h-4 text-slate-500" /> Airport Portal
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
 
-            {location.pathname !== "/" && location.pathname !== "/register-your-stay" && location.pathname !== "/about" && (
+            {!(location.pathname === "/" || location.pathname.includes("/register-your-stay") || location.pathname.includes("/about") || location.pathname.includes("/authority-login") || location.pathname.includes("/airport-login")) && (
               <Button variant="outline" className="rounded-full border-destructive/30 text-destructive hover:bg-destructive hover:text-white font-medium h-9 px-4 gap-2 transition-all shadow-sm">
                 <Phone className="w-4 h-4" />
                 SOS
@@ -230,7 +232,7 @@ const Header = () => {
                 Airport Portal
               </Button>
             </Link>
-            {location.pathname !== "/" && location.pathname !== "/register-your-stay" && location.pathname !== "/about" && (
+            {!(location.pathname === "/" || location.pathname.includes("/register-your-stay") || location.pathname.includes("/about") || location.pathname.includes("/authority-login") || location.pathname.includes("/airport-login")) && (
               <Button variant="outline" className="w-full justify-center mt-2 rounded-xl border-destructive/30 text-destructive gap-2 dark:hover:bg-destructive/10">
                 <Phone className="w-4 h-4" />
                 SOS
