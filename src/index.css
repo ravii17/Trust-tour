@@ -8,102 +8,126 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    /* Very Light Grey/White */
-    --foreground: 222 10% 12%;
-    /* #1D1D1F Dark grey text */
+    /* Ivory / Off-white */
+    --background: 38.7 44.3% 96.5%;
+    /* Cocoa */
+    --foreground: 33.1 37.8% 17.6%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 10% 12%;
+    /* Soft Cream */
+    --card: 35.6 42.8% 93.1%;
+    --card-foreground: 33.1 37.8% 17.6%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 10% 12%;
+    --popover: 35.6 42.8% 93.1%;
+    --popover-foreground: 33.1 37.8% 17.6%;
 
-    /* Soft Blue as primary for Trust & Security (#0071E3) */
-    --primary: 210 100% 45%;
-    --primary-foreground: 0 0% 100%;
+    /* Warm Beige */
+    --primary: 35.4 39.5% 74.7%;
+    --primary-foreground: 33.1 37.8% 17.6%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222 10% 12%;
+    --secondary: 35.6 42.8% 93.1%;
+    --secondary-foreground: 33.1 37.8% 17.6%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 16% 47%;
+    /* Light Sand */
+    --muted: 33.6 33.3% 86.5%;
+    /* Taupe */
+    --muted-foreground: 31.8 16.1% 41.2%;
 
-    /* Teal as accent */
-    --accent: 173 72% 31%;
-    --accent-foreground: 0 0% 100%;
+    /* Mocha Brown */
+    --accent: 35.5 32.4% 41.2%;
+    --accent-foreground: 35.6 42.8% 93.1%;
 
     /* Emergency Red */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 210 100% 45%;
-    /* Primary Blue Ring */
+    /* Light Sand */
+    --border: 33.6 33.3% 86.5%;
+    --input: 33.6 33.3% 86.5%;
+    /* Mocha Brown */
+    --ring: 35.5 32.4% 41.2%;
+
+    /* Soft Olive */
+    --success: 81.6 20.0% 61.8%;
+    --success-foreground: 33.1 37.8% 17.6%;
 
     /* Trust Tour custom tokens */
-    --saffron: 33 100% 60%;
-    --saffron-light: 36 100% 90%;
-    --saffron-dark: 28 90% 45%;
+    --saffron: 35.5 32.4% 41.2%;
+    /* Mapped to Mocha Brown */
+    --saffron-light: 35.4 39.5% 74.7%;
+    /* Mapped to Warm Beige */
+    --saffron-dark: 33.1 37.8% 17.6%;
+    /* Mapped to Cocoa */
 
-    --teal: 178 100% 32%;
-    --teal-light: 178 80% 90%;
-    --teal-dark: 178 100% 20%;
+    --teal: 81.6 20.0% 61.8%;
+    /* Mapped to Soft Olive */
+    --teal-light: 81.6 20.0% 80%;
+    --teal-dark: 81.6 20.0% 40%;
 
-    --india-green: 142 71% 33%;
-    --slate-text: 222 10% 12%;
-    --slate-muted: 215 16% 47%;
-    --authority-bg: 222 47% 11%;
+    --india-green: 81.6 20.0% 61.8%;
+    /* Mapped to Soft Olive */
+    --slate-text: 33.1 37.8% 17.6%;
+    --slate-muted: 31.8 16.1% 41.2%;
+    --authority-bg: 33.1 37.8% 17.6%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 210 100% 45%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 38.7 44.3% 96.5%;
+    --sidebar-foreground: 33.1 37.8% 17.6%;
+    --sidebar-primary: 35.4 39.5% 74.7%;
+    --sidebar-primary-foreground: 33.1 37.8% 17.6%;
+    --sidebar-accent: 35.6 42.8% 93.1%;
+    --sidebar-accent-foreground: 33.1 37.8% 17.6%;
+    --sidebar-border: 33.6 33.3% 86.5%;
+    --sidebar-ring: 35.5 32.4% 41.2%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Deep Cocoa Background (#2B221A) */
+    --background: 33 25% 13.5%;
+    /* Soft Cream */
+    --foreground: 35.6 42.8% 93.1%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    /* Slightly lighter cocoa */
+    --card: 33 20% 16.5%;
+    --card-foreground: 35.6 42.8% 93.1%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 33 20% 16.5%;
+    --popover-foreground: 35.6 42.8% 93.1%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Warm Beige */
+    --primary: 35.4 39.5% 74.7%;
+    --primary-foreground: 33.1 37.8% 17.6%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Dark Taupe */
+    --secondary: 32 15% 25%;
+    --secondary-foreground: 35.6 42.8% 93.1%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 32 15% 25%;
+    --muted-foreground: 35.4 39.5% 74.7%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Light Sand */
+    --accent: 33.6 33.3% 86.5%;
+    --accent-foreground: 33.1 37.8% 17.6%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 32 15% 25%;
+    --input: 32 15% 25%;
+    --ring: 33.6 33.3% 86.5%;
+
+    /* Soft Olive */
+    --success: 81.6 20.0% 61.8%;
+    --success-foreground: 33 25% 13.5%;
+
+    --sidebar-background: 33 25% 13.5%;
+    --sidebar-foreground: 35.6 42.8% 93.1%;
+    --sidebar-primary: 35.4 39.5% 74.7%;
+    --sidebar-primary-foreground: 33.1 37.8% 17.6%;
+    --sidebar-accent: 32 15% 25%;
+    --sidebar-accent-foreground: 35.6 42.8% 93.1%;
+    --sidebar-border: 32 15% 25%;
+    --sidebar-ring: 33.6 33.3% 86.5%;
   }
 }
 
