@@ -149,7 +149,7 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {!(location.pathname.includes("/authority-login") || location.pathname.includes("/airport-login")) && (
+            {!(location.pathname.includes("/authority-login") || location.pathname.includes("/airport-login") || location.pathname.includes("/register-your-stay")) && (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button className="rounded-full font-medium shadow-sm h-9 px-5 gap-2 transition-all bg-transparent border border-slate-900 text-slate-900 hover:bg-slate-100 dark:border-white/20 dark:text-white dark:hover:bg-white/20">
