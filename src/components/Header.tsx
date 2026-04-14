@@ -27,7 +27,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl" | "tr" | "sv" | "he" | "hu" | "el" | "pl" | "sw" | "id" | "th" | "bn" | "vi") => {
+  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl" | "tr" | "sv" | "he" | "hu" | "el" | "pl" | "sw" | "id" | "th" | "bn" | "vi" | "ta") => {
     setLang(newLang);
     setMobileMenuOpen(false);
   };
@@ -58,6 +58,7 @@ const Header = () => {
       case "th": return "ไทย";
       case "bn": return "বাংলা";
       case "vi": return "Tiếng Việt";
+      case "ta": return "தமிழ்";
       default: return "English";
     }
   };
@@ -146,6 +147,7 @@ const Header = () => {
                 <DropdownMenuItem onClick={() => handleLanguageChange("th")} className="cursor-pointer">ภาษาไทย (TH)</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("bn")} className="cursor-pointer">বাংলা (BN)</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("vi")} className="cursor-pointer">Tiếng Việt (VI)</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("ta")} className="cursor-pointer">தமிழ் (TA)</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
