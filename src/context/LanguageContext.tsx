@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 
-type Language = "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl" | "tr" | "sv" | "he" | "hu" | "el" | "pl" | "sw" | "id" | "th" | "bn" | "vi" | "ta";
+type Language = "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl" | "tr" | "sv" | "he" | "hu" | "el" | "pl" | "sw" | "id" | "th" | "bn" | "vi" | "ta" | "mr";
 
 interface LanguageContextType {
   lang: Language;
@@ -2070,6 +2070,105 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.about": "எங்களை பற்றி",
     "footer.ministry": "சுற்றுலா அமைச்சகம், இந்திய அரசு",
     "footer.rights": "2024 Trust Tour. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
+  },
+  mr: {
+    // Header
+    "header.tagline": "भारत सरकारच्या पर्यटन उपक्रमाद्वारे समर्थित",
+    "header.lang_en": "EN",
+    "header.lang_hi": "हिंदी",
+    "header.tourist_login": "पर्यटक लॉगिन",
+
+    // Hero
+    "hero.title": "तुमची सुरक्षा आमचे प्राधान्य आहे",
+    "hero.subtitle":
+      "भारतात आपले स्वागत आहे! तुमचा प्रवास सुरक्षित आणि संस्मरणीय करण्यासाठी आम्ही वचनबद्ध आहोत. तुमची नोंदणी करा आणि सुरक्षिततेने प्रवासाचा आनंद घ्या.",
+    "hero.badge1": " कूटबद्ध तपशील",
+    "hero.badge2": " 24/7 समर्थन",
+    "hero.badge3": " अधिकृत प्रवेश",
+
+    // Traveler Portal
+    "traveler.heading": "तुमच्या प्रवासाची नोंदणी करा",
+    "traveler.subheading":
+      "येथे तुमची नोंदणी करा आणि आम्हाला तुमच्या प्रवासाबद्दल सांगा",
+    "traveler.name": "पूर्ण नाव",
+    "traveler.passport": "पासपोर्ट क्रमांक",
+    "traveler.phone": "फोन नंबर",
+    "traveler.city": "सध्याचे शहर",
+    "traveler.nationality": "राष्ट्रीयत्व",
+    "traveler.name_placeholder": "उदा. जॉन स्मिथ",
+    "traveler.passport_placeholder": "उदा. A12345678",
+    "traveler.phone_placeholder": "+91 9876878595",
+    "traveler.city_placeholder": "उदा. नवी दिल्ली",
+    "traveler.nationality_placeholder": "उदा. युनायटेड किंगडम",
+    "traveler.submit": "नोंदणी सबमिट करा",
+    "traveler.submitted": "नोंदणी सबमिट केली!",
+
+    // Authority Portal
+    "authority.badge": "केवळ विभागीय प्रवेश",
+    "authority.heading": "पोलीस / प्राधिकरण प्रवेश",
+    "authority.subheading":
+      "केवळ सत्यापित सरकारी अधिकाऱ्यांसाठी सुरक्षित पोर्टल.",
+    "authority.officer_id": "अधिकारी आयडी",
+    "authority.password": "पासवर्ड",
+    "authority.officer_id_placeholder": "तुमची आयडी टाका",
+    "authority.password_placeholder": "तुमचा पासवर्ड टाका",
+    "authority.login": "सुरक्षित लॉगिन",
+    "authority.note": "अनधिकृत प्रवेश हा दंडनीय गुन्हा आहे.",
+
+    // Safety Guide
+    "safety.section_title": "तुमच्या सहलीदरम्यान तुमचा सुरक्षा साथीदार",
+    "safety.section_sub": "आमच्यासोबत भारतात सुरक्षित राहा",
+    "safety.emergency_title": "राष्ट्रीय आणीबाणी",
+    "safety.emergency_num": "112",
+    "safety.emergency_desc": "पोलीस, अग्निशमन सेवा, किंवा रुग्णवाहिकेच्या मदतीसाठी 112 डायल करा. भारतभर 24/7 उपलब्ध.",
+    "safety.medical_title": "वैद्यकीय मदत",
+    "safety.medical_num": "108",
+    "safety.medical_desc": "108 रुग्णवाहिका सेवा मोफत आपत्कालीन वैद्यकीय प्रतिसाद.",
+    "safety.police_title": "पर्यटक पोलीस",
+    "safety.police_num": "1800-111-363",
+    "safety.police_desc": "पर्यटक सहाय्य आणि सुरक्षेसाठी समर्पित टोल-फ्री हेल्पलाइन.",
+    "safety.rights_title": "तुमचे अधिकार जाणून घ्या",
+    "safety.rights_desc":
+      "पर्यटक म्हणून तुम्हाला पोलीस मदत, योग्य किंमत आणि सर्व सेवांमध्ये आपत्कालीन प्रवेशाचा अधिकार आहे.",
+    "safety.tips_title": "सुरक्षित प्रवासाच्या टिप्स",
+    "safety.tips_desc": "भारतभर सुरक्षित आणि आरामदायक प्रवासासाठी 5 सुवर्ण नियमांचे पालन करा.",
+    "safety.report_title": "घटनेची तक्रार करा",
+    "safety.report_desc": "एखादी समस्या आली? त्वरित अहवाल द्या आणि अधिकाऱ्यांकडून मदत घ्या.",
+    "safety.report_btn": "आता रिपोर्ट करा",
+
+    // Golden Rules
+    "rules.title": "5 सुवर्ण नियम",
+    "rules.subtitle": "भारतातील सुरक्षित प्रवासासाठी",
+    "rules.1_title": "पासपोर्टच्या प्रती ठेवा",
+    "rules.1_desc": "कायम तुमच्या पासपोर्टच्या आणि व्हिसा कागदपत्रांच्या डिजिटल आणि मूळ प्रती सोबत ठेवा.",
+    "rules.2_title": "तुमचा प्रवास मार्गक्रम शेअर करा",
+    "rules.2_desc": "तुमच्या विश्वासू व्यक्तीला तुमच्या प्रवासाची योजना, हॉटेलचे तपशील आणि दैनंदिन वेळापत्रक सांगा.",
+    "rules.3_title": "अधिकृत वाहतूक वापरा",
+    "rules.3_desc": "केवळ परवानाधारक टॅक्सी, ओला/उबर वापरा किंवा IRCTC किंवा नोंदणीकृत अॅप्सद्वारे तिकीट बुक करा.",
+    "rules.4_title": "नंबर्स ऑफलाइन किंवा डिव्हाइसवर जतन करा",
+    "rules.4_desc": "आपत्कालीन संपर्क 112, 108, हॉटेल, कुटुंब आणि पर्यटक पोलीस तुमच्या डिव्हाइसवर ऑफलाइन जतन करा.",
+    "rules.5_title": "प्रत्येक शहराची नोंदणी करा",
+    "rules.5_desc": "उच्च धोक्याच्या क्षेत्रापासून सुरक्षित ठेवण्यासाठी हे पोर्टल तुमच्या स्थानाचा मागोवा ठेवेल.",
+
+    // Report Modal
+    "modal.title": "घटनेची नोंद करा",
+    "modal.name": "पासपोर्टनुसार तुमचे नाव",
+    "modal.incident_type": "घटनेचा प्रकार",
+    "modal.location": "स्थान",
+    "modal.description": "वर्णन",
+    "modal.submit": "रिपोर्ट सबमिट करा",
+    "modal.cancel": "रद्द करा",
+    "modal.submitted": "रिपोर्ट सबमिट केला!",
+
+    // Footer
+    "footer.mission": "प्रत्येक प्रवाशासाठी भारताला सर्वात सुरक्षित आणि स्वागतार्ह ठिकाण बनवण्यासाठी समर्पित.",
+    "footer.links_title": "जलद दुवे",
+    "footer.home": "मुख्य पृष्ठ",
+    "footer.safety": "सुरक्षा मार्गदर्शक",
+    "footer.emergency": "आपत्कालीन संपर्क",
+    "footer.about": "आमच्याबद्दल",
+    "footer.ministry": "पर्यटन मंत्रालय, भारत सरकार",
+    "footer.rights": "2024 ट्रस्ट टूर. सर्व हक्क राखीव.",
   },
 };
 
