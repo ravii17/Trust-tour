@@ -27,7 +27,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl" | "tr" | "sv" | "he" | "hu" | "el" | "pl" | "sw" | "id" | "th" | "bn" | "vi" | "ta" | "mr") => {
+  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl" | "tr" | "sv" | "he" | "hu" | "el" | "pl" | "sw" | "id" | "th" | "bn" | "vi" | "ta" | "mr" | "ur" | "gu" | "kn" | "te" | "ml") => {
     setLang(newLang);
     setMobileMenuOpen(false);
   };
@@ -60,6 +60,11 @@ const Header = () => {
       case "vi": return "Tiếng Việt";
       case "ta": return "தமிழ்";
       case "mr": return "मराठी";
+      case "ur": return "اردو";
+      case "gu": return "ગુજરાતી";
+      case "kn": return "ಕನ್ನಡ";
+      case "te": return "తెలుగు";
+      case "ml": return "മലയാളം";
       default: return "English";
     }
   };
@@ -150,6 +155,11 @@ const Header = () => {
                 <DropdownMenuItem onClick={() => handleLanguageChange("vi")} className="cursor-pointer">Tiếng Việt (VI)</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("ta")} className="cursor-pointer">தமிழ் (TA)</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("mr")} className="cursor-pointer">मराठी (MR)</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("ur")} className="cursor-pointer">اردو (UR)</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("gu")} className="cursor-pointer">ગુજરાતી (GU)</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("kn")} className="cursor-pointer">ಕನ್ನಡ (KN)</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("te")} className="cursor-pointer">తెలుగు (TE)</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("ml")} className="cursor-pointer">മലയാളം (ML)</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
