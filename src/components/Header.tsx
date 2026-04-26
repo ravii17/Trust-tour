@@ -27,7 +27,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl" | "tr" | "sv" | "he" | "hu" | "el" | "pl" | "sw" | "id" | "th" | "bn" | "vi" | "ta" | "mr" | "ur" | "gu" | "kn" | "te" | "ml") => {
+  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl" | "tr" | "sv" | "he" | "hu" | "el" | "pl" | "sw" | "id" | "th" | "bn" | "vi" | "ta" | "mr" | "ur" | "gu" | "kn" | "te" | "ml" | "nah") => {
     setLang(newLang);
     setMobileMenuOpen(false);
   };
@@ -65,6 +65,7 @@ const Header = () => {
       case "kn": return "ಕನ್ನಡ";
       case "te": return "తెలుగు";
       case "ml": return "മലയാളം";
+      case "nah": return "Nahuatl";
       default: return "English";
     }
   };
@@ -160,6 +161,7 @@ const Header = () => {
                 <DropdownMenuItem onClick={() => handleLanguageChange("kn")} className="cursor-pointer">ಕನ್ನಡ (KN)</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("te")} className="cursor-pointer">తెలుగు (TE)</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("ml")} className="cursor-pointer">മലയാളം (ML)</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("nah")} className="cursor-pointer">Nahuatl (NAH)</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
