@@ -1,6 +1,6 @@
 import { Shield, MapPin, UserRound, Globe, Phone, Menu, X, Building2 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { useLang } from "@/context/LanguageContext";
+import { useLang, Language } from "@/context/LanguageContext";
 import { useState, useEffect } from "react";
 import {
   DropdownMenu,
@@ -27,7 +27,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl" | "tr" | "sv" | "he" | "hu" | "el" | "pl" | "sw" | "id" | "th" | "bn" | "vi" | "ta" | "mr" | "ur" | "gu" | "kn" | "te" | "ml" | "nah") => {
+  const handleLanguageChange = (newLang: Language) => {
     setLang(newLang);
     setMobileMenuOpen(false);
   };
@@ -66,6 +66,7 @@ const Header = () => {
       case "te": return "తెలుగు";
       case "ml": return "മലയാളം";
       case "nah": return "Nahuatl";
+      case "pa": return "ਪੰਜਾਬੀ";
       default: return "English";
     }
   };
@@ -162,6 +163,7 @@ const Header = () => {
                 <DropdownMenuItem onClick={() => handleLanguageChange("te")} className="cursor-pointer">తెలుగు (TE)</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("ml")} className="cursor-pointer">മലയാളം (ML)</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("nah")} className="cursor-pointer">Nahuatl (NAH)</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("pa")} className="cursor-pointer">ਪੰਜਾਬੀ (PA)</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
