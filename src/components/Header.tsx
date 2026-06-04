@@ -27,7 +27,11 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+<<<<<<< HEAD
   const handleLanguageChange = (newLang: Language) => {
+=======
+  const handleLanguageChange = (newLang: "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl" | "tr" | "sv" | "he" | "hu" | "el" | "pl" | "sw" | "id" | "th" | "bn" | "vi" | "ta" | "mr" | "ur" | "gu" | "kn" | "te" | "ml" | "nah" | "pa") => {
+>>>>>>> 7a241791aef2c9563cc1b4a5bee6e189f0df4252
     setLang(newLang);
     setMobileMenuOpen(false);
   };
