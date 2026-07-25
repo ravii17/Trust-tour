@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 
-export type Language = "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl" | "tr" | "sv" | "he" | "hu" | "el" | "pl" | "sw" | "id" | "th" | "bn" | "vi" | "ta" | "mr" | "ur" | "gu" | "kn" | "te" | "ml" | "nah" | "pa";
+export type Language = "en" | "hi" | "ja" | "fr" | "ru" | "es" | "de" | "ar" | "zh" | "it" | "pt" | "ko" | "nl" | "tr" | "sv" | "he" | "hu" | "el" | "pl" | "sw" | "id" | "th" | "bn" | "vi" | "ta" | "mr" | "ur" | "gu" | "kn" | "te" | "ml" | "nah" | "pa" | "ne";
 
 interface LanguageContextType {
   lang: Language;
@@ -2810,6 +2810,147 @@ const translations: Record<Language, Record<string, string>> = {
     "features.4_title": "ਤੁਰੰਤ ਚੇਤਾਵਨੀ ਪ੍ਰਣਾਲੀ",
     "features.4_desc": "ਇੱਕ ਟੈਪ ਨਾਲ ਸੰਕਟ ਦਾ ਸੰਕੇਤ ਭੇਜੋ। ਸਾਡਾ ਸਿਸਟਮ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਤੁਹਾਡੀ ਲਾਈਵ ਲੋਕੇਸ਼ਨ ਸਾਂਝੀ ਕਰਦਾ ਹੈ।",
   },
+  ne: {
+    // Header
+    "header.tagline": "भारत सरकारको पर्यटन पहलद्वारा संचालित",
+    "header.lang_en": "EN",
+    "header.lang_hi": "हिंदी",
+    "header.tourist_login": "पर्यटक लगइन",
+
+    // Hero
+    "hero.title": "सुरक्षित यात्रा। सुरक्षित रहनुहोस्।",
+    "hero.subtitle":
+      "सुरक्षित यात्राका लागि सरकारद्वारा प्रमाणित यात्री दर्ता। भारतमा तपाईंको बसाइको समयमा २४/७ अनुगमन र आपतकालीन सहायता सुनिश्चित गर्न अहिले नै दर्ता गर्नुहोस्।",
+    "hero.badge1": " ईन्क्रिप्टेड विवरणहरू",
+    "hero.badge2": " २४/७ सहायता",
+    "hero.badge3": " आधिकारिक प्राधिकरण पहुँच",
+    "hero.register": "अहिले नै दर्ता गर्नुहोस्",
+    "hero.learn_more": "थप जान्नुहोस्",
+    "hero.verified": "प्रमाणित सुरक्षित",
+    "hero.official": "भारत सरकार — आधिकारिक पोर्टल",
+
+    // Traveler Portal
+    "traveler.heading": "तपाईंको यात्रा दर्ता गर्नुहोस्",
+    "traveler.subheading":
+      "यहाँ आफैलाई दर्ता गर्नुहोस् र हामीलाई तपाईंको यात्राको बारेमा जानकारी दिनुहोस्",
+    "traveler.name": "पूरा नाम",
+    "traveler.passport": "राहदानी नम्बर",
+    "traveler.phone": "फोन नम्बर",
+    "traveler.city": "सधैंको शहर / हालको शहर",
+    "traveler.nationality": "राष्ट्रियता",
+    "traveler.name_placeholder": "उदा. जोन स्मिथ",
+    "traveler.passport_placeholder": "उदा. A12345678",
+    "traveler.phone_placeholder": "+91 9876878595",
+    "traveler.city_placeholder": "उदा. नयाँ दिल्ली",
+    "traveler.nationality_placeholder": "उदा. संयुक्त अधिराज्य",
+    "traveler.submit": "दर्ता बुझाउनुहोस्",
+    "traveler.submitted": "दर्ता बुझाइयो!",
+
+    // Authority Portal
+    "authority.badge": "विभागीय पहुँच मात्र",
+    "authority.heading": "प्रहरी / प्राधिकरण पहुँच",
+    "authority.subheading":
+      "प्रमाणित सरकारी अधिकारीहरूका लागि मात्र सुरक्षित पोर्टल।",
+    "authority.officer_id": "अधिकारी आईडी",
+    "authority.password": "पासवर्ड",
+    "authority.officer_id_placeholder": "आफ्नो आईडी प्रविष्ट गर्नुहोस्",
+    "authority.password_placeholder": "आफ्नो पासवर्ड प्रविष्ट गर्नुहोस्",
+    "authority.login": "सुरक्षित लगइन",
+    "authority.note": "अनधिकृत पहुँच एक दण्डनीय अपराध हो।",
+
+    // Safety Guide
+    "safety.section_title": "तपाईंको यात्राको समयमा तपाईंको सुरक्षा साथी",
+    "safety.section_sub": "हामीसँग भारतमा सुरक्षित रहनुहोस्",
+    "safety.emergency_title": "राष्ट्रिय आपतकाल",
+    "safety.emergency_num": "112",
+    "safety.emergency_desc": "प्रहरी, दमकल, वा एम्बुलेन्स सेवाका लागि ११२ डायल गर्नुहोस्, जुन भारतभर २४/७ उपलब्ध छ।",
+    "safety.medical_title": "चिकित्सा सहायता",
+    "safety.medical_num": "108",
+    "safety.medical_desc": "१०८ एम्बुलेन्स सेवाहरू निःशुल्क आपतकालीन चिकित्सा प्रतिक्रिया।",
+    "safety.police_title": "पर्यटक प्रहरी",
+    "safety.police_num": "1800-111-363",
+    "safety.police_desc": "पर्यटकहरूको सहायता र सुरक्षाका लागि समर्पित टोल-फ्री हेल्पलाइन।",
+    "safety.rights_title": "आफ्ना अधिकारहरू जान्नुहोस्",
+    "safety.rights_desc":
+      "एक पर्यटकको रूपमा तपाईंलाई प्रहरी सहायता, उचित मूल्य निर्धारण र सबै वस्तुहरूमा आपतकालीन पहुँचको अधिकार छ।",
+    "safety.tips_title": "सुरक्षित यात्रा सुझावहरू",
+    "safety.tips_desc": "भारतभर सुरक्षित र आरामदायी यात्राका लागि ५ सुनौला नियमहरू पालना गर्नुहोस्।",
+    "safety.report_title": "घटना रिपोर्ट गर्नुहोस्",
+    "safety.report_desc": "कुनै समस्या भयो? तुरुन्तै रिपोर्ट गर्नुहोस् र अधिकारीहरूबाट मद्दत प्राप्त गर्नुहोस्।",
+    "safety.report_btn": "अहिले नै रिपोर्ट गर्नुहोस्",
+
+    // Golden Rules
+    "rules.title": "५ सुनौला नियमहरू",
+    "rules.subtitle": "भारतमा सुरक्षित यात्राका लागि",
+    "rules.1_title": "राहदानीका प्रतिलिपिहरू राख्नुहोस्",
+    "rules.1_desc": "सधैं आफ्नो राहदानी र भिसा कागजातहरूको डिजिटल र भौतिक प्रतिलिपिहरू साथमा राख्नुहोस्।",
+    "rules.2_title": "आफ्नो यात्रा तालिका साझा गर्नुहोस्",
+    "rules.2_desc": "तपाईंले विश्वास गर्ने व्यक्तिलाई आफ्नो यात्रा योजना, होटलको विवरण र दैनिक तालिका बताउनुहोस्।",
+    "rules.3_title": "आधिकारिक यातायात प्रयोग गर्नुहोस्",
+    "rules.3_desc": "लाइसेन्स प्राप्त ट्याक्सी, ओला/उबर मात्र प्रयोग गर्नुहोस् वा आईआरसीटीसी वा दर्ता गरिएका एपहरू मार्फत टिकट बुक गर्नुहोस्।",
+    "rules.4_title": "नम्बरहरू अफलाइन वा यन्त्रमा सुरक्षित गर्नुहोस्",
+    "rules.4_desc": "आपतकालीन सम्पर्कहरू ११२, १०८, होटल, परिवार र पर्यटक प्रहरी आफ्नो यन्त्रमा अफलाइन सुरक्षित गर्नुहोस्।",
+    "rules.5_title": "हरेक शहर दर्ता गर्नुहोस्",
+    "rules.5_desc": "यो पोर्टलले तपाईंलाई उच्च जोखिमयुक्त क्षेत्रबाट सुरक्षित राख्न तपाईंको स्थानको ट्र्याक राख्नेछ।",
+
+    // Report Modal
+    "modal.title": "घटना रिपोर्ट गर्नुहोस्",
+    "modal.name": "राहदानी अनुसार तपाईंको नाम",
+    "modal.incident_type": "घटनाको प्रकार",
+    "modal.location": "स्थान",
+    "modal.description": "विवरण",
+    "modal.submit": "रिपोर्ट बुझाउनुहोस्",
+    "modal.cancel": "रद्द गर्नुहोस्",
+    "modal.submitted": "रिपोर्ट बुझाइयो!",
+
+    // How It Works
+    "howitworks.title": "यसले कसरी काम गर्छ",
+    "howitworks.subtitle": "भारतभर सुरक्षित र सुखद यात्रा सुनिश्चित गर्नका लागि एक सरल ३-चरण प्रक्रिया।",
+    "howitworks.step1_title": "विमानस्थलमा दर्ता गर्नुहोस्",
+    "howitworks.step1_desc": "आइपुग्दा आधिकारिक पोर्टल मार्फत आफ्नो यात्रा विवरण तुरुन्तै बुझाउनुहोस्।",
+    "howitworks.step2_title": "सुरक्षित डाटाबेस प्रविष्टि",
+    "howitworks.step2_desc": "तपाईंको जानकारी सुरक्षित रूपमा इन्क्रिप्ट र सरकारद्वारा भण्डारण गरिएको छ।",
+    "howitworks.step3_title": "२४/७ अनुगमन र सहायता",
+    "howitworks.step3_desc": "तपाईंसँग चौबीसै घण्टा आपतकालीन सहायता छ भन्ने थाहा पाएर आफ्नो यात्राको आनन्द लिनुहोस्।",
+
+    // Features
+    "features.title": "अद्वितीय सुरक्षा सुविधाहरू",
+    "features.subtitle": "तपाईंको यात्राको समयमा सहज सुरक्षा र मानसिक शान्ति प्रदान गर्नका लागि तयार पारिएको।",
+    "features.1_title": "वास्तविक समय ट्र्याकिङ",
+    "features.1_desc": "सम्बन्धित अधिकारीहरूद्वारा आफ्नो स्थान सुरक्षित रूपमा अनुगमन गर्न अनुमति दिनुहोस्।",
+    "features.2_title": "आपතकालीन सम्पर्क एकीकरण",
+    "features.2_desc": "भारतका स्थानीय अधिकारीहरूसँग आफ्ना मनपर्ने आपतकालीन सम्पर्कहरू सीधा लिङ्क गर्नुहोस्।",
+    "features.3_title": "ब्लकचेน आधारित सरकारी इन्क्रिप्टेड डाटाबेस",
+    "features.3_desc": "तपाईंको यात्रा डाटा इन्क्रिप्ट गरिएको छ र सुरक्षित सरकारी सर्भरहरू भित्र राखिएको छ।",
+    "features.4_title": "तुरुन्त चेतावनी प्रणाली",
+    "features.4_desc": "एक ट्यापमा संकटको संकेत पठाउनुहोस्। हाम्रो प्रणालीले स्वचालित रूपमा तपाईंको प्रत्यक्ष स्थान साझा गर्दछ।",
+
+    // Footer
+    "footer.mission": "प्रत्येक यात्रीका लागि भारतलाई सबैभन्दा सुरक्षित र स्वागतयोग्य गन्तव्य बनाउन समर्पित।",
+    "footer.links_title": "द्रुत लिङ्कहरू",
+    "footer.home": "गृहपृष्ठ",
+    "footer.safety": "सुरक्षा मार्गनिर्देशन",
+    "footer.emergency": "आपतकालीन सम्पर्कहरू",
+    "footer.about": "हाम्रो बारेमा",
+    "footer.ministry": "पर्यटन मन्त्रालय, भारत सरकार",
+    "footer.rights": "२०२४ Trust Tour। सबै अधिकार सुरक्षित।"
+  },
+};
+
+const LanguageContext = createContext<LanguageContextType>({
+  lang: "en",
+  setLang: () => { },
+  t: (k) => k,
+});
+
+export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
+  const [lang, setLang] = useState<Language>("en");
+  const t = (key: string) => (translations[lang] && translations[lang][key]) ?? key;
+  return (
+    <LanguageContext.Provider value={{ lang, setLang, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
 };
 
 export const useLang = () => useContext(LanguageContext);

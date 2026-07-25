@@ -67,6 +67,7 @@ const Header = () => {
       case "ml": return "മലയാളം";
       case "nah": return "Nahuatl";
       case "pa": return "ਪੰਜਾਬੀ";
+      case "ne": return "नेपाली";
       default: return "English";
     }
   };
@@ -164,6 +165,7 @@ const Header = () => {
                 <DropdownMenuItem onClick={() => handleLanguageChange("ml")} className="cursor-pointer">മലയാളം (ML)</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("nah")} className="cursor-pointer">Nahuatl (NAH)</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange("pa")} className="cursor-pointer">ਪੰਜਾਬੀ (PA)</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange("ne")} className="cursor-pointer">नेपाली (NE)</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
